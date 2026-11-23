@@ -1,0 +1,33 @@
+TASK 11 – TEST RESULTS
+
+Test 1: Normal Operation
+Input: Car enters and exits after 120 minutes.
+Expected Result: Vehicle exits successfully and parking fee is calculated.
+Actual Result: PASS
+
+Test 2: Boundary Case
+Input: TwoWheeler exits exactly after 60 minutes.
+Expected Result: Fee is calculated for one hour.
+Actual Result: PASS
+
+Test 3: Zero-Minute Parking
+Input: Car enters and exits at the same time.
+Expected Result: Duration is 0 minutes and no parking hours are charged.
+Actual Result: PASS
+
+Test 4: Invalid Vehicle Type
+Input: Vehicle type is Bus.
+Expected Result: System rejects the unknown vehicle type.
+Actual Result: PASS
+
+Test 5: Duplicate Registration Number
+Input: Same vehicle tries to enter twice.
+Expected Result: System rejects the duplicate entry.
+Actual Result: PASS
+
+
+DESIGN EVALUATION
+
+The system uses separate classes and methods to organize parking tickets, slot allocation and fee calculation. A HashMap is used to find active tickets using the vehicle registration number efficiently.
+
+The design handles normal, boundary and invalid cases. The system can be extended by adding new vehicle types and parking rules.

@@ -1,0 +1,68 @@
+TASK 9 – APPLY ABSTRACTION AND INTERFACES
+
+1. Abstract Class – Vehicle
+
+Vehicle is designed as an abstract class because all vehicles share common data and behaviour.
+
+Common data:
+- Registration number
+
+Common behaviour:
+- Get registration number
+- Calculate parking fee
+
+However, different vehicle types have different parking rates. Therefore, the ratePerHour() method is declared as an abstract method and each subclass provides its own implementation.
+
+The abstract Vehicle class cannot be directly instantiated. Only subclasses such as Car, TwoWheeler and ElectricCar can create objects.
+
+2. Interface – Chargeable
+
+Chargeable is an interface used to represent the capability of charging an electric vehicle.
+
+It contains the method:
+
+double chargingFee(int kWh);
+
+ElectricCar implements the Chargeable interface because it has the additional capability of charging.
+
+A normal Car does not need to implement this interface.
+
+3. Why Use an Abstract Class and an Interface?
+
+The abstract class Vehicle is used because all vehicle types share common state, such as the registration number, and common methods.
+
+The Chargeable interface is used because charging is a capability that only some vehicles have.
+
+This design separates the main vehicle hierarchy from optional capabilities.
+
+4. Multiple Behaviours
+
+Java does not support multiple inheritance of classes. However, a class can implement multiple interfaces.
+
+For example:
+
+class ElectricCar extends Car implements Chargeable
+
+This means ElectricCar inherits common vehicle features from Car and also obtains the charging capability from the Chargeable interface.
+
+5. Default or Static Methods
+
+A default method can provide common behaviour inside an interface.
+
+For example:
+
+default void showChargingInfo() {
+    System.out.println("Charging service available");
+}
+
+A static method can provide utility behaviour related to the interface.
+
+For example:
+
+static double calculateChargingCost(int kWh, double rate) {
+    return kWh * rate;
+}
+
+6. Conclusion
+
+The combination of an abstract Vehicle class and the Chargeable interface creates a flexible and extensible design. New vehicle types and new capabilities can be added without changing the existing vehicle classes.

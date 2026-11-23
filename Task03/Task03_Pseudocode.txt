@@ -1,0 +1,77 @@
+TASK 3 – DESIGN THE CONTROL LOGIC
+
+1. Parking Slot Allocation Pseudocode
+
+BEGIN
+
+FOR each floor from 0 to total number of floors - 1
+
+    FOR each slot from 0 to number of slots on the floor - 1
+
+        IF the slot is free THEN
+
+            Allocate the slot to the vehicle
+
+            Display the floor number and slot number
+
+            STOP the search
+
+        END IF
+
+    END FOR
+
+END FOR
+
+IF no free slot is found THEN
+
+    Display "Parking Facility is Full"
+
+END IF
+
+END
+
+
+2. Parking Fee Calculation Pseudocode
+
+BEGIN
+
+INPUT parking duration in minutes
+
+INPUT vehicle type
+
+Calculate billable hours as:
+
+hours = (minutes + 59) / 60
+
+IF vehicle type is TwoWheeler THEN
+
+    fee = hours × 10
+
+ELSE IF vehicle type is Car THEN
+
+    fee = hours × 30
+
+ELSE IF vehicle type is ElectricCar THEN
+
+    fee = hours × 50
+
+ELSE
+
+    Display "Invalid Vehicle Type"
+
+END IF
+
+DISPLAY parking fee
+
+END
+
+
+3. Control Logic Explanation
+
+The slot allocation operation searches floor by floor and slot by slot. The search stops immediately when the first free slot is found. If all slots are occupied, the system returns null or displays that the parking facility is full.
+
+The parking fee uses decision logic based on the vehicle type. The parking duration is converted into billable hours. Every started hour is charged in full using the formula:
+
+hours = (minutes + 59) / 60
+
+This avoids incorrect integer division and ensures that a vehicle parked for 90 minutes is charged for 2 hours.

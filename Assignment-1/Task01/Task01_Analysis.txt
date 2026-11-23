@@ -1,0 +1,67 @@
+TASK 1 – UNDERSTAND THE PROBLEM AND IDENTIFY THE OBJECTS
+
+1. Problem Analysis
+
+The Campus Smart-Parking System manages a multi-level parking facility used by students, staff and visitors. The system allocates a suitable free parking slot when a vehicle enters, creates a parking ticket, records the entry time and calculates the parking fee when the vehicle leaves.
+
+2. Candidate Classes and Their Responsibilities
+
+Vehicle
+Represents a vehicle entering the parking facility. It stores the registration number and vehicle type. Different vehicle types can have different parking rates.
+
+ParkingSlot
+Represents an individual parking slot. It stores the slot number and whether the slot is free or occupied.
+
+ParkingFacility
+Represents the complete parking area. It manages multiple floors and searches for available parking slots.
+
+ParkingTicket
+Represents the ticket issued to a vehicle. It contains a unique ticket number, vehicle details, allocated slot and entry time.
+
+User
+Represents a person using the parking facility. The user can be a Student, Staff member or Visitor.
+
+Student and Staff
+These users may have a valid monthly pass and can park free of charge.
+
+Visitor
+Represents a visitor who pays the normal parking fee.
+
+3. Business Rules
+
+1. A parking slot cannot contain more than one vehicle at the same time.
+2. A vehicle can occupy only one parking slot.
+3. A ticket number must be unique and must not be reused.
+4. A vehicle must be allocated a suitable free slot before entering.
+5. When a vehicle leaves, its parking slot must be released.
+6. Parking fees depend on the vehicle type and parking duration.
+7. Students and staff with a valid monthly pass can park free of charge.
+8. Visitors must pay the applicable parking fee.
+9. An invalid slot number cannot be allocated or released.
+
+4. Assumptions
+
+1. Each vehicle has a unique registration number.
+2. Each floor has a fixed number of parking slots.
+3. A vehicle cannot enter the parking facility twice at the same time.
+4. Entry and exit times are recorded by the system.
+5. The parking facility has a limited number of slots.
+
+5. Alternative Concept – Parallel Arrays
+
+Instead of representing each vehicle as an object, the system could use parallel arrays:
+
+regNo[]
+type[]
+entryTime[]
+
+For example, information about one vehicle would be stored at the same index in all arrays.
+
+Finding a Vehicle:
+Both a simple object array and parallel arrays require a linear search when searching by registration number. Therefore, the time complexity is O(n).
+
+Adding a New Vehicle Attribute:
+In an object-oriented design, a new attribute can be added to the Vehicle class. In parallel arrays, a new array must be created and maintained at the correct index.
+
+Space Complexity:
+Both approaches require O(n) space for n vehicles. However, the object-oriented design is easier to maintain because all information related to one vehicle is grouped together in one object.

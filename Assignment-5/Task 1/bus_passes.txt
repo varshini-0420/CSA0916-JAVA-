@@ -1,0 +1,2 @@
+P1001|SAI|CHENNAI|1500.0
+P1002|Invalid Record

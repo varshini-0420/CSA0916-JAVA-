@@ -1,0 +1,107 @@
+TASK 12 – DESIGN CHALLENGE
+
+EXTENDING THE CAMPUS SMART-PARKING SYSTEM
+
+1. Supporting E-Bikes
+
+A new class called EBike can be added to the Vehicle hierarchy.
+
+Example:
+
+Vehicle
+   |
+   ├── Car
+   ├── TwoWheeler
+   │      |
+   │      └── EBike
+   └── ElectricCar
+
+The EBike class can override the parking fee calculation method and provide its own parking rate.
+
+This design follows the Open-Closed Principle because a new vehicle type can be added without changing the existing Vehicle, Car, or TwoWheeler classes.
+
+2. Supporting Delivery Vans
+
+A new DeliveryVan class can extend Vehicle.
+
+Delivery vans may require larger parking slots. Therefore, the ParkingSlot class can include a slot type such as:
+
+- Small
+- Standard
+- Large
+
+The system can check whether a suitable slot is available before allocating a parking space.
+
+3. Supporting One-Day Passes
+
+A new ParkingPass class can be created.
+
+The class can contain:
+
+- Pass ID
+- User type
+- Valid date
+- Pass status
+
+The system can check whether the pass is valid before calculating the parking fee.
+
+Students, staff, and visitors can have different pass rules.
+
+4. Supporting Five Floors
+
+The ParkingFacility class can use a two-dimensional array or a collection of floors.
+
+Example:
+
+String[][] slots = new String[5][];
+
+Each floor can have a different number of parking slots.
+
+This makes the system flexible and allows additional floors to be added easily.
+
+5. Proposed Improved Design
+
+The improved system can contain the following main classes:
+
+Vehicle
+- Car
+- TwoWheeler
+- EBike
+- ElectricCar
+- DeliveryVan
+
+ParkingFacility
+- Manages floors and parking slots
+
+ParkingSlot
+- Stores slot number and slot type
+- Stores whether the slot is occupied
+
+ParkingTicket
+- Stores ticket details and entry time
+
+ParkingPass
+- Stores pass information and validity
+
+User
+- Student
+- Staff
+- Visitor
+
+6. Design Justification
+
+Inheritance is used to represent different types of vehicles.
+
+Method overriding allows each vehicle type to calculate its own parking fee.
+
+Encapsulation protects important data such as registration numbers and pass details.
+
+Abstraction separates common vehicle behaviour from specific vehicle behaviour.
+
+Interfaces can be used for optional capabilities. For example, a Chargeable interface can be implemented by ElectricCar and EBike.
+
+The design is modular and extensible. New vehicle types, new parking rules, and additional floors can be added without changing the entire system.
+
+CONCLUSION
+
+The Campus Smart-Parking System can be extended easily by using object-oriented programming concepts. The proposed design supports future requirements while keeping the system organized, reusable, and easy to maintain.
